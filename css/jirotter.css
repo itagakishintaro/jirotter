@@ -43,9 +43,9 @@ a {
 #main ul li dl {
   width: 50%;
   height: 150px;
-  display: inline-block;
-  box-sizing: content-box;
-  padding: 0;
+  box-sizing: border-box;
+  padding: 0 8px;
+  float: left;
 }
 /* line 49, jirotter.scss */
 #main ul li dl dt {
