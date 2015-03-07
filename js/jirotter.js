@@ -39,13 +39,15 @@ var shops = [
 '赤羽店．',
 '札幌店',
 '会津若松駅前店',
-'JR西口蒲田店' 
+'JR西口蒲田店',
 ];
-
-$.getJSON('http://localhost:8000/twitter_search.php?kensaku=二郎', function(json) {
+for(var i=0; i<=shops.length; i++){
+$.getJSON("http://localhost:8000/twitter_search.php?kensaku="+shops[i], function(json) {
 console.log(json.statuses);
 
 });
+
+}
 
 function iminos(text, favorite_count) {
     $.ajax({
