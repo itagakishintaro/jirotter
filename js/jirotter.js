@@ -55,7 +55,38 @@ for(var i=0; i<shops.length; i++){
 setTimeout(function(){
     var sorted = favoriteSort(shops);
     console.log(sorted);
+
+
+    $('#no1').text('１位　' + shops[0].name);
+    $('.no1.positive').text('');
+    shops[0].tweets.filter(function(element){
+        return element.spn == 1;
+    }).forEach(function(element){
+        $('.no1.positive').text($('.no1.positive').text() + '/' + element.text);
+    });
+
+
+    $('#no2').text('２位　' + shops[1].name);
+        $('.no2.positive').text('');
+    shops[1].tweets.filter(function(element){
+        return element.spn == 1;
+    }).forEach(function(element){
+        $('.no2.positive').text($('.no2.positive').text() + '/' + element.text);
+    });
+
+
+    $('#no3').text('３位　' + shops[2].name);
+        $('.no3.positive').text('');
+    shops[2].tweets.filter(function(element){
+        return element.spn == 1;
+    }).forEach(function(element){
+        $('.no3.positive').text($('.no3.positive').text() + '/' + element.text);
+    });
+
+
 }, 3000);
+
+
 
 
 function favoriteSort(items){
