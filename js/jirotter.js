@@ -41,12 +41,27 @@ var shops = [
 '会津若松駅前店',
 'JR西口蒲田店',
 ];
-for(var i=0; i<=shops.length; i++){
-$.getJSON("http://localhost:8000/twitter_search.php?kensaku="+shops[i], function(json) {
-console.log(json.statuses);
 
+for(var i=0; i<=shops.length; i++){
+  $.getJSON("http://localhost:8000/twitter_search.php?kensaku="+shops[i], function(json) {
+  console.log(json.statuses);
+  var sorted = favoriteSort(json.statuses);
+  console.log(sorted);
+});
+}
+function favoriteSort(items){
+items.sort(function (a, b) {
+  if (a.favorite_count < b.favorite_count) {
+    return 1;
+  }
+  if (a.favorite_count > b.favorite_count) {
+    return -1;
+  }
+  // a must be equal to b
+  return 0;
 });
 
+return items;
 }
 
 function iminos(text, favorite_count) {
