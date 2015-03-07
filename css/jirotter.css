@@ -1,23 +1,118 @@
-/* line 1, jirotter.scss */
+@font-face {
+  font-family: logotypejp_mp_m_1;
+  src: url("../fonts/logotypejp_mp_m_1.ttf") format("truetype");
+}
+
+/* line 12, jirotter.scss */
+body {
+  font-family: Verdana, logotypejp_mp_m_1, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+  background-color: #fff100;
+}
+
+/* line 17, jirotter.scss */
 a {
   text-decoration: none;
 }
 
-/* line 6, jirotter.scss */
-.contener {
-  width: 90%;
+/* line 26, jirotter.scss */
+.header {
+  margin: 0 auto;
+  width: 1024px;
+}
+/* line 29, jirotter.scss */
+.header img {
+  width: 100px;
 }
 
-/* line 10, jirotter.scss */
-.header {
-  width: 300px;
-  height: 100px;
+/* line 34, jirotter.scss */
+#main {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+/* line 37, jirotter.scss */
+#main ul {
+  padding-left: 0;
+  background-color: #fcfcfc;
+  box-sizing: border-box;
+}
+/* line 41, jirotter.scss */
+#main ul li {
+  overflow: hidden;
+}
+/* line 43, jirotter.scss */
+#main ul li dl {
+  width: 50%;
+  height: 150px;
+  display: inline-block;
+  box-sizing: content-box;
+  padding: 0;
+}
+/* line 49, jirotter.scss */
+#main ul li dl dt {
+  background: yellow;
+  font-size: 24px;
+  padding: 4px 0;
+  text-align: center;
+}
+/* line 55, jirotter.scss */
+#main ul li dl dd {
+  line-height: 1.4em;
+  margin-left: 0px;
+  padding: 8px 0;
+}
+/* line 62, jirotter.scss */
+#main ul li p {
+  text-align: right;
+}
+/* line 67, jirotter.scss */
+#main ul.sonohoka {
+  padding: 0;
+}
+/* line 69, jirotter.scss */
+#main ul.sonohoka li {
+  margin: 0 auto;
+}
+/* line 71, jirotter.scss */
+#main ul.sonohoka li p {
+  text-align: left;
+  display: inline-block;
+}
+
+/* line 80, jirotter.scss */
+#main2 {
+  width: 1024px;
   margin: 0 auto;
   border: 1px solid #ccc;
 }
-
-/* line 17, jirotter.scss */
-#main {
-  width: 1024;
+/* line 84, jirotter.scss */
+#main2 ul {
+  padding: 0;
+}
+/* line 86, jirotter.scss */
+#main2 ul li {
+  width: 1006px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+/* line 90, jirotter.scss */
+#main2 ul li dl {
+  width: 500px;
   border: 1px solid #ccc;
+  box-sizing: border-box;
+  padding: 0;
+  float: left;
+  margin-left: 3px;
+}
+/* line 97, jirotter.scss */
+#main2 ul li dl dt {
+  background: yellow;
+}
+/* line 100, jirotter.scss */
+#main2 ul li dl dd {
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+/* line 105, jirotter.scss */
+#main2 ul li p {
+  text-align: right;
 }
