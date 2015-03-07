@@ -15,3 +15,9 @@ a {
   margin: 0 auto;
   border: 1px solid #ccc;
 }
+
+/* line 17, jirotter.scss */
+#main {
+  width: 1024;
+  border: 1px solid #ccc;
+}
