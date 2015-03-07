@@ -18,31 +18,31 @@ a {
 .header {
   margin: 0 auto;
   width: 1024px;
+  text-align: center;
 }
-/* line 29, jirotter.scss */
+/* line 30, jirotter.scss */
 .header img {
-  width: 100px;
+  width: 260px;
 }
 
-/* line 34, jirotter.scss */
+/* line 35, jirotter.scss */
 #main {
   max-width: 1024px;
   margin: 0 auto;
 }
-/* line 37, jirotter.scss */
+/* line 38, jirotter.scss */
 #main ul {
-  padding-left: 0;
+  padding: 0 16px;
   background-color: #fcfcfc;
   box-sizing: border-box;
 }
-/* line 41, jirotter.scss */
+/* line 42, jirotter.scss */
 #main ul li {
   overflow: hidden;
 }
-/* line 43, jirotter.scss */
+/* line 44, jirotter.scss */
 #main ul li dl {
   width: 50%;
-  height: 150px;
   box-sizing: border-box;
   padding: 0 8px;
   float: left;
@@ -59,42 +59,45 @@ a {
   line-height: 1.4em;
   margin-left: 0px;
   padding: 8px 0;
+  background-color: #fff;
+  height: 140px;
+  overflow: scroll;
 }
-/* line 62, jirotter.scss */
+/* line 65, jirotter.scss */
 #main ul li p {
   text-align: right;
 }
-/* line 67, jirotter.scss */
+/* line 70, jirotter.scss */
 #main ul.sonohoka {
   padding: 0;
 }
-/* line 69, jirotter.scss */
+/* line 72, jirotter.scss */
 #main ul.sonohoka li {
   margin: 0 auto;
 }
-/* line 71, jirotter.scss */
+/* line 74, jirotter.scss */
 #main ul.sonohoka li p {
   text-align: left;
   display: inline-block;
 }
 
-/* line 80, jirotter.scss */
+/* line 83, jirotter.scss */
 #main2 {
   width: 1024px;
   margin: 0 auto;
   border: 1px solid #ccc;
 }
-/* line 84, jirotter.scss */
+/* line 87, jirotter.scss */
 #main2 ul {
   padding: 0;
 }
-/* line 86, jirotter.scss */
+/* line 89, jirotter.scss */
 #main2 ul li {
   width: 1006px;
   margin: 0 auto;
   overflow: hidden;
 }
-/* line 90, jirotter.scss */
+/* line 93, jirotter.scss */
 #main2 ul li dl {
   width: 500px;
   border: 1px solid #ccc;
@@ -103,16 +106,16 @@ a {
   float: left;
   margin-left: 3px;
 }
-/* line 97, jirotter.scss */
+/* line 100, jirotter.scss */
 #main2 ul li dl dt {
   background: yellow;
 }
-/* line 100, jirotter.scss */
+/* line 103, jirotter.scss */
 #main2 ul li dl dd {
   margin-bottom: 30px;
   margin-top: 10px;
 }
-/* line 105, jirotter.scss */
+/* line 108, jirotter.scss */
 #main2 ul li p {
   text-align: right;
 }
