@@ -7,9 +7,10 @@
 
 	require_once('twitter/twitteroauth.php');
 	$twObj	= new TwitterOAuth(TW_CONSUMER_KEY,TW_CONSUMER_SECRET,ACCESS_TOKEN,ACCESS_TOKEN_SECRET);
+  $word = $_GET['kensaku'];
 
 	//Twitterで検索するワード
-	$search_word = array('ラーメン二郎'); // 3つまでOKだったはず
+	$search_word = array($word); // 3つまでOKだったはず
 	// $search_word = array(htmlspecialchars($_GET['word'], ENT_QUOTES)); // 3つまでOKだったはず
 
 		//API実行データ取得
