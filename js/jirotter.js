@@ -62,25 +62,47 @@ setTimeout(function(){
     shops[0].tweets.filter(function(element){
         return element.spn == 1;
     }).forEach(function(element){
-        $('.no1.positive').text($('.no1.positive').text() + '/' + element.text);
+        $('.no1.positive').append('<div>' + element.text + '</div>');
+        $('.no1.positive').append('<hr>');
     });
-
+    $('.no1.negative').text('');
+    shops[0].tweets.filter(function(element){
+        return element.spn == 2;
+    }).forEach(function(element){
+        $('.no1.negative').append('<div>' + element.text + '</div>');
+        $('.no1.negative').append('<hr>');
+    });
 
     $('#no2').text('２位　' + shops[1].name);
         $('.no2.positive').text('');
     shops[1].tweets.filter(function(element){
         return element.spn == 1;
     }).forEach(function(element){
-        $('.no2.positive').text($('.no2.positive').text() + '/' + element.text);
+        $('.no2.positive').append('<div>' + element.text + '</div>');
+        $('.no2.positive').append('<hr>');
     });
-
+    $('.no2.negative').text('');
+    shops[0].tweets.filter(function(element){
+        return element.spn == 2;
+    }).forEach(function(element){
+        $('.no2.negative').append('<div>' + element.text + '</div>');
+        $('.no2.negative').append('<hr>');
+    });
 
     $('#no3').text('３位　' + shops[2].name);
         $('.no3.positive').text('');
     shops[2].tweets.filter(function(element){
         return element.spn == 1;
     }).forEach(function(element){
-        $('.no3.positive').text($('.no3.positive').text() + '/' + element.text);
+        $('.no3.positive').append('<div>' + element.text + '</div>');
+        $('.no3.positive').append('<hr>');
+    });
+    $('.no3.negative').text('');
+    shops[0].tweets.filter(function(element){
+        return element.spn == 2;
+    }).forEach(function(element){
+        $('.no3.negative').append('<div>' + element.text + '</div>');
+        $('.no3.negative').append('<hr>');
     });
 
 
