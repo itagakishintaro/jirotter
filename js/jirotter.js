@@ -1,80 +1,93 @@
 'use strict';
 
 var shops = [
-'三田本店',
-'目黒店',
-'仙川店',
-'歌舞伎町店',
-'品川店',
-'新宿小滝橋通り店',
-'環七新代田店',
-'八王子野猿街道店２',
-'池袋東口店',
-'新小金井街道店',
-'亀戸店',
-'京急川崎店',
-'府中店',
-'松戸駅前店',
-'めじろ台法政大学前店',
-'荻窪店',
-'上野毛店',
-'京成大久保店',
-'環七一之江店',
-'相模大野店',
-'横浜関内店',
-'神田神保町店',
-'小岩店',
-'ひばりヶ丘駅前店',
-'桜台駅前店',
-'栃木街道店',
-'立川店',
-'大宮店',
-'千住大橋駅前店',
-'茨城守谷店',
-'湘南藤沢店',
-'西台駅前店',
-'中山駅前店',
-'新橋店',
-'仙台店',
-'赤羽店．',
-'札幌店',
-'会津若松駅前店',
-'JR西口蒲田店',
+    {name: '三田本店', rank: 0, tweets: null, spn: null},
+    {name: '目黒店', rank: 0, tweets: null, spn: null},
+    // {name: '仙川店', rank: 0, tweets: null, spn: null},
+    // {name: '歌舞伎町店', rank: 0, tweets: null, spn: null},
+    // {name: '品川店', rank: 0, tweets: null, spn: null},
+    // {name: '新宿小滝橋通り店', rank: 0, tweets: null, spn: null},
+    // {name: '環七新代田店', rank: 0, tweets: null, spn: null},
+    // {name: '八王子野猿街道店２', rank: 0, tweets: null, spn: null},
+    // {name: '池袋東口店', rank: 0, tweets: null, spn: null},
+    // {name: '新小金井街道店', rank: 0, tweets: null, spn: null},
+    // {name: '亀戸店', rank: 0, tweets: null, spn: null},
+    // {name: '京急川崎店', rank: 0, tweets: null, spn: null},
+    // {name: '府中店', rank: 0, tweets: null, spn: null},
+    // {name: '松戸駅前店', rank: 0, tweets: null, spn: null},
+    // {name: 'めじろ台法政大学前店', rank: 0, tweets: null, spn: null},
+    // {name: '荻窪店', rank: 0, tweets: null, spn: null},
+    // {name: '上野毛店', rank: 0, tweets: null, spn: null},
+    // {name: '京成大久保店', rank: 0, tweets: null, spn: null},
+    // {name: '環七一之江店', rank: 0, tweets: null, spn: null},
+    // {name: '相模大野店', rank: 0, tweets: null, spn: null},
+    // {name: '横浜関内店', rank: 0, tweets: null, spn: null},
+    // {name: '神田神保町店', rank: 0, tweets: null, spn: null},
+    // {name: '小岩店', rank: 0, tweets: null, spn: null},
+    // {name: 'ひばりヶ丘駅前店', rank: 0, tweets: null, spn: null},
+    // {name: '桜台駅前店', rank: 0, tweets: null, spn: null},
+    // {name: '栃木街道店', rank: 0, tweets: null, spn: null},
+    // {name: '立川店', rank: 0, tweets: null, spn: null},
+    // {name: '大宮店', rank: 0, tweets: null, spn: null},
+    // {name: '千住大橋駅前店', rank: 0, tweets: null, spn: null},
+    // {name: '茨城守谷店', rank: 0, tweets: null, spn: null},
+    // {name: '湘南藤沢店', rank: 0, tweets: null, spn: null},
+    // {name: '西台駅前店', rank: 0, tweets: null, spn: null},
+    // {name: '中山駅前店', rank: 0, tweets: null, spn: null},
+    // {name: '新橋店', rank: 0, tweets: null, spn: null},
+    // {name: '仙台店', rank: 0, tweets: null, spn: null},
+    // {name: '赤羽店．', rank: 0, tweets: null, spn: null},
+    // {name: '札幌店', rank: 0, tweets: null, spn: null},
+    // {name: '会津若松駅前店', rank: 0, tweets: null, spn: null},
+    {name: 'JR西口蒲田店', rank: 0, tweets: null, spn: null}
 ];
 
-for(var i=0; i<=shops.length; i++){
-  $.getJSON("http://localhost:8000/twitter_search.php?kensaku="+shops[i], function(json) {
-  console.log(json.statuses);
-  var sorted = favoriteSort(json.statuses);
-  console.log(sorted);
-});
+for(var i=0; i<shops.length; i++){
+    $.ajaxSetup({ async: false });
+    $.getJSON('http://localhost:8000/twitter_search.php?kensaku=' + shops[i].name, function(json) {
+        shops[i].tweets = json.statuses;
+        json.statuses.forEach(function(element, index){
+            iminos(element.text, i, index);
+        });
+    });
 }
+
+setTimeout(function(){
+    var sorted = favoriteSort(shops);
+    console.log(sorted);
+}, 3000);
+
+
 function favoriteSort(items){
-items.sort(function (a, b) {
-  if (a.favorite_count < b.favorite_count) {
-    return 1;
-  }
-  if (a.favorite_count > b.favorite_count) {
-    return -1;
-  }
-  // a must be equal to b
-  return 0;
-});
+    items.sort(function (a, b) {
+      if (a.rank < b.rank) {
+        return 1;
+      }
+      if (a.rank > b.rank) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    });
 
-return items;
+    return items;
 }
 
-function iminos(text, favorite_count) {
+function iminos(text, i, index) {
+    $.ajaxSetup({ async: false });
     $.ajax({
         url: 'https://lr.capio.jp/webapis/iminos/synana_k/1_1/',
+        async: false,
         dataType: 'jsonp',
         data: {
             'sent': text,
             'acckey': 'KjrdM5WYryQFcT2b'
         },
         success: function(json) {
-console.log(json);
-        	
+            shops[i].tweets[index].spn = json.results[0].spn;
+            if(json.results[0].spn == 1){
+                shops[i].rank++;
+            }
         }
     });
 }
