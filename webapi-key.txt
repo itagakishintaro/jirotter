@@ -1,0 +1,9 @@
+WebAPI利用ID,PW,アクセスキー】
+
+UserID : XwaziFoa
+
+PassWord : 0Dq1q09i
+
+AccessKey: KjrdM5WYryQFcT2b
+
+https://lr.capio.jp/webapis/iminos/h/

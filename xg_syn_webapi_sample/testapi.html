@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+<!--
+//サンプルを動かすにはjqueryが必要です。
+function test(){
+    //jsonpを使います。
+    $.ajax({
+	    url : "https://lr.capio.jp/webapis/iminos/synana_k/1_1/",
+    	dataType : "jsonp",
+    	data :{"sent": $('#teststr').val(),"acckey":"ここにアクセスキー"},
+    	success  : function(json){
+        	func(json);
+    	}
+    });
+}
+
+function func(data){
+
+    var word = get_word(data);
+	var str = "【文節の自立語】\n";    
+    if(word instanceof Array){
+        for(var i = 0;i < word.length;i++){
+        	if(str.length){
+        		str += "\n";
+        	}
+          	str += (i + 1) + "番目 : "+ word[i];
+        }
+    }else{
+    	str = "エラーです。 error_code:" + word;
+    }
+
+    alert(str);
+}
+
+//結果から自立語をただただ取り出す
+function get_word(data){
+	if(data.apierr != "0"){
+		return data.apierr; //API呼び出しでエラーのときはエラーコードを返す
+	}
+
+	var jiritsugo_array = new Array();
+	var sent_array = data.results;
+	for(var i = 0;i < sent_array.length;i++){
+		if(sent_array[i].err != "0"){
+			continue; //文が解析エラーのときは次へ
+		}
+		var ph_array = sent_array[i].phrases;
+		for(var j = 0;j < ph_array.length;j++){
+			jiritsugo_array.push(ph_array[j].jshuushi);
+		}
+	}
+	return jiritsugo_array;
+}
+//-->
+</script>
+</head>
+<body>
+<input type="text" id="teststr" size="100" maxlength="200" placeholder="何か文章を入れてテストボタンを押してください。"><br/>
+<button type="button" onclick="test()">テスト</button>
+</body>
+</html>
