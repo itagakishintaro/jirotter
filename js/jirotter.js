@@ -42,10 +42,26 @@ var shops = [
 'JR西口蒲田店' 
 ];
 
-$.getJSON('http://localhost:8000/twitter_search.php?kensaku=二郎', function(json) {
+$.getJSON('http://localhost/jirotter/twitter_search.php?kensaku=ラーメン二郎', function(json) {
 console.log(json.statuses);
-
+var sorted = favoriteSort(json.statuses);
+console.log(sorted);
 });
+
+function favoriteSort(items){
+items.sort(function (a, b) {
+  if (a.favorite_count < b.favorite_count) {
+    return 1;
+  }
+  if (a.favorite_count > b.favorite_count) {
+    return -1;
+  }
+  // a must be equal to b
+  return 0;
+});
+
+return items;
+}
 
 function iminos(text, favorite_count) {
     $.ajax({
